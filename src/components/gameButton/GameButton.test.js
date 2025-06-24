@@ -4,12 +4,14 @@ import GameButton from './GameButton';
 
 
 describe('Render GameButton', ()=>{
+  const startEndClickHandler = jest.fn();
+
   test("Button default", ()=>{
     render(<GameButton 
         startEndClickHandler={()=>{}}
         isGameStart={false}
     />)
-    const gameButtonElement = screen.getByRole("game-button");
+    const gameButtonElement = screen.getByRole("button");
 
     expect(gameButtonElement).toBeInTheDocument();
     expect(gameButtonElement).toHaveTextContent("START");
@@ -18,10 +20,10 @@ describe('Render GameButton', ()=>{
 
     test("Button Game started", ()=>{
     render(<GameButton 
-        startEndClickHandler={()=>{}}
+        startEndClickHandler={startEndClickHandler}
         isGameStart={true}
     />)
-    const gameButtonElement = screen.getByRole("game-button");
+    const gameButtonElement = screen.getByRole("button");
 
     expect(gameButtonElement).toBeInTheDocument();
     expect(gameButtonElement).toHaveTextContent("PAUSE");

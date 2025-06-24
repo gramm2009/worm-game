@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game component render renders correctly asFragment 1`] = `
+<DocumentFragment>
+  <div
+    class="game"
+    role="game"
+  >
+    <div
+      class="game-title"
+    >
+      Click on the worm game
+    </div>
+    <div
+      class="game-score"
+    >
+      0
+    </div>
+    <div
+      class="game-field"
+    >
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+      <div
+        class="game-cell "
+        role="cell"
+      />
+    </div>
+    <div>
+      <button
+        class="game-button"
+        role="button"
+      >
+        START
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

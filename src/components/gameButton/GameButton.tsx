@@ -13,8 +13,8 @@ const GameButton: React.FC<GemeButtonProps> = ({
     <div>
       <button 
         onClick={startEndClickHandler}
-        role="game-button"
         className="game-button"
+        role="button"
       >
           {isGameStart ? "PAUSE" : "START"}
       </button>
