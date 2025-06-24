@@ -5,18 +5,8 @@ import React, {
   useCallback,
   useEffect,
 } from "react";
-
-interface CellPropsInterface {
-  isWorm: boolean;
-};
-
-const Cell: React.FC<CellPropsInterface> = ({ isWorm }): ReactElement => {
-  return (
-    <div className={`game-cell ${isWorm ? "worm" : ""}`}>
-      {isWorm ? "WORM" : null}
-    </div>
-  );
-};
+import Cell from "../cell/Cell";
+import GameButton from "../gameButton/GameButton";
 
 const Game = () => {
   const fieldSize = 16;
@@ -43,7 +33,7 @@ const Game = () => {
 
   function getRandomNumber(min: number, max: number): number {
     return Math.round(Math.random() * (max - min) + min);
-  };
+  }
 
   function cellClickHandler(
     e: React.MouseEvent<HTMLDivElement | MouseEvent>
@@ -53,12 +43,15 @@ const Game = () => {
     if (isWorm) {
       setScore((prev) => prev + 1);
       setWormPosition(getRandomNumber(0, 16));
-    };
-  };
+    }
+  }
 
-  function startEndClickHandler(): void {
+  const startEndClickHandler = useCallback((): void => {
     setIsGameStart((prev) => !prev);
-  };
+  }, []);
+  // function startEndClickHandler(): void {
+  //   setIsGameStart((prev) => !prev);
+  // };
 
   const clearIntervslF = useCallback((): void => {
     intervalRef.current && clearInterval(intervalRef.current);
@@ -71,7 +64,6 @@ const Game = () => {
       setWormPosition(getRandomNumber(0, fieldSize));
     }, speedRef.current);
   }, [clearIntervslF]);
-
 
   useEffect(() => {
     if (isGameStart) {
@@ -98,11 +90,10 @@ const Game = () => {
       <div onClick={cellClickHandler} className="game-field">
         {renderBoards()}
       </div>
-      <div>
-        <button onClick={startEndClickHandler}>
-          {isGameStart ? "PAUSE" : "START"}
-        </button>
-      </div>
+      <GameButton
+        startEndClickHandler={startEndClickHandler}
+        isGameStart={isGameStart}
+      />
     </div>
   );
 };
