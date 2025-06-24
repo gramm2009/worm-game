@@ -5,6 +5,7 @@ import React, {
   useCallback,
   useEffect,
 } from "react";
+import { getRandomNumber } from '../functions';
 import Cell from "../cell/Cell";
 import GameButton from "../gameButton/GameButton";
 
@@ -31,10 +32,6 @@ const Game = () => {
     return reactElements;
   }, [isGameStart, wormPosition]);
 
-  function getRandomNumber(min: number, max: number): number {
-    return Math.round(Math.random() * (max - min) + min);
-  }
-
   function cellClickHandler(
     e: React.MouseEvent<HTMLDivElement | MouseEvent>
   ): void {
@@ -49,9 +46,6 @@ const Game = () => {
   const startEndClickHandler = useCallback((): void => {
     setIsGameStart((prev) => !prev);
   }, []);
-  // function startEndClickHandler(): void {
-  //   setIsGameStart((prev) => !prev);
-  // };
 
   const clearIntervslF = useCallback((): void => {
     intervalRef.current && clearInterval(intervalRef.current);
@@ -84,7 +78,7 @@ const Game = () => {
   }, [score]);
 
   return (
-    <div className="game">
+    <div className="game" role="game">
       <div className="game-title">Click on the worm game</div>
       <div className="game-score">{score}</div>
       <div onClick={cellClickHandler} className="game-field">

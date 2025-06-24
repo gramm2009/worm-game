@@ -15,6 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $primary-color;
   color: $text-color;
+  user-select: none;
 }
 
 .game {
