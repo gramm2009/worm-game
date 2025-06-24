@@ -44,7 +44,7 @@ describe("Integration Game component test", () => {
     await waitFor(() => {
       const wormCell = screen.getAllByRole("cell").filter(el => el.classList.contains("worm"));
       fireEvent.click(wormCell[0]);
-      const scoreElement = screen.getByText(/1/i);
+      const scoreElement = screen.getByText(/Score: 1/i);
       expect(scoreElement).toBeInTheDocument();
     });
   });

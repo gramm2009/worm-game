@@ -18,14 +18,14 @@ const Game = () => {
   const [isGameStart, setIsGameStart] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
   const [wormPosition, setWormPosition] = useState<number>(
-    getRandomNumber(0, fieldSize)
+    getRandomNumber(1, fieldSize)
   );
 
   const renderBoards: () => ReactElement[] = useCallback((): ReactElement[] => {
     const size: number = fieldSize;
     const reactElements: ReactElement[] = [];
 
-    for (let i = 0; i < size; i++) {
+    for (let i = 1; i <= size; i++) {
       const isWorm = isGameStart && (i === wormPosition ? true : false);
       reactElements.push(<Cell isWorm={isWorm} key={i} />);
     }
@@ -39,7 +39,7 @@ const Game = () => {
     const isWorm = Object.values(target.classList).includes("worm");
     if (isWorm) {
       setScore((prev) => prev + 1);
-      setWormPosition(getRandomNumber(0, 16));
+      setWormPosition(getRandomNumber(1, 16));
     }
   }
 
@@ -55,7 +55,7 @@ const Game = () => {
     clearIntervslF();
 
     intervalRef.current = setInterval(() => {
-      setWormPosition(getRandomNumber(0, fieldSize));
+      setWormPosition(getRandomNumber(1, fieldSize));
     }, speedRef.current);
   }, [clearIntervslF]);
 
@@ -80,7 +80,7 @@ const Game = () => {
   return (
     <div className="game" role="game">
       <div className="game-title">Click on the worm game</div>
-      <div className="game-score">{score}</div>
+      <div className="game-score">{`Score: ${score}`}</div>
       <div onClick={cellClickHandler} className="game-field">
         {renderBoards()}
       </div>

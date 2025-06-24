@@ -4,6 +4,6 @@ describe('Game E2E Tests', () => {
     cy.contains('START').click();
     cy.get('.game-cell.worm').should('exist');
     cy.get('.game-cell.worm').click();
-    cy.contains(/1/i).should('exist');
+    cy.contains("Score: 1").should('exist');
   });
 });
